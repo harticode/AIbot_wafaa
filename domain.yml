@@ -1,0 +1,152 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - contient
+  - blocker
+  - thankyou
+  - sensible
+  - blagues_des_banquiers
+  - diffusable
+  - based_impact
+  - based_cible
+  - based_content
+  - confidentiel
+  - not_sure
+  - bloquer
+  - interne
+
+actions:
+  - action_check_existence
+  - utter_greet
+  - utter_default
+  - utter_define
+  - utter_choosetypeclassification
+  - utter_describe
+  - utter_cheer_up
+  - utter_cible
+  - utter_impact
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_welcome
+  - utter_iamabot
+
+entities:
+  - classification
+  - sensible
+  - confidentiel
+  - interne
+  - diffusable
+
+responses:
+  utter_greet:
+  - text: "Hé ! Comment allez-vous ?"
+
+  utter_default:
+  - text: "Désolé, je n'ai pas bien compris, pouvez-vous reformuler ?"
+
+  utter_define:
+  - text: "je suis Wafaa, Je suis là pour vous aider à déterminer le niveau de classification de vos documents."
+
+  utter_choosetypeclassification:
+   -
+      text: "vous voulez classer votre dossier en fonction de :"
+      buttons:
+      - 
+        title: "Contenu"
+        payload: '/based_content'
+      - 
+        title: "La cible"
+        payload: '/based_cible'
+      - 
+        title: "Impact"
+        payload: '/based_impact'
+
+  
+  utter_describe:
+  - text: "pouvez-vous me décrire votre dossier, quel type de données il contient"
+
+  utter_cheer_up:
+  - text: "Quel est le point commun entre un banquier et une hémorroïde ?   Les deux tournent autour du pot."
+  - text: "Un crédit : long terme, ça veut dire que moins tu peux payer, plus tu payes."
+  - text: "Quel est le point commun entre le sperme et le mensonge d’un banquier ?   Le plus dur, c’est de le faire avaler."
+  
+  utter_cible:
+    -
+      text: "à quelle cible s'adresse ce document ?"
+      buttons:
+        - 
+          title: "ces informations peuvent être publiées en ligne sans risque pour l'entreprise"
+          payload: '/diffusable'
+        - 
+          title: "ce fichier peut etre partagees a l'interne de l'entreprise sans risque"
+          payload: '/interne'
+        - 
+          title: "ce fichier est adressé a un departement ou un groupe restreint de personnes bien identifier"
+          payload: '/sensible'
+        - 
+          title: "ce fichier est adressé à un groupe restreint de personnes bien identifier seulement"
+          payload: '/confidentiel'
+        -
+          title: "je sais pas"
+          payload: '/not_sure'
+  
+  utter_impact:
+    -
+      text: "si ce dossier était divulgué publiquement, quelles seraient les conséquences pour la banque?"
+      buttons:
+        - 
+          title: "Aucune Impact"
+          payload: '/diffusable'
+        - 
+          title: "Perte de réputation ou Perte de confiance"
+          payload: '/interne'
+        - 
+          title: "Perte financière - Perte de réputation - Pénalités réglementaires potentielles"
+          payload: '/sensible'
+        - 
+          title: "Pénalités réglementaires surment - Perte financière - Perte de réputation"
+          payload: '/confidentiel'
+        -
+          title: "je sais pas"
+          payload: '/not_sure'
+  
+  utter_did_that_help:
+  - text: "Cela vous a-t-il aidé ?"
+
+  utter_happy:
+  - text: "Super !"
+
+  utter_goodbye:
+  - text: "Bye"
+  
+  utter_confid:
+  - text: "ce document est confidentiel"
+
+  utter_inter:
+  - text: "ce document est internes"
+
+  utter_sensib:
+  - text: "ce document est sensibles"
+
+  utter_diffus:
+  - text: "ce document est diffusable"
+
+  utter_welcome:
+  - text: "avec plaisir!"
+
+  utter_iamabot:
+  - text: "je suis Wafaa, Je suis là pour vous aider à déterminer le niveau de classification de vos documents."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+slots:
+  classification:
+    type: unfeaturized

@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "c:\\Users\\harti\\Anaconda3\\envs\\rasaenv\\python.exe",
+    "python.condaPath": "C:\\Users\\harti\\Anaconda3\\Scripts\\activate.bat & conda activate py37"
+    
+}
