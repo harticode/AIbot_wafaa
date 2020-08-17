@@ -1,3 +1,7 @@
-Droits de propriété intellectuelle
-Données protégées par le PCI-DSS
-Données protégées par l'HIPAA
+informations clients
+numéros de comptes
+réclamations de clients VIP
+données VIP
+données confidentielles
+primes
+salaires

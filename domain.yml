@@ -7,7 +7,6 @@ intents:
   - mood_unhappy
   - bot_challenge
   - contient
-  - blocker
   - thankyou
   - sensible
   - blagues_des_banquiers
@@ -19,6 +18,7 @@ intents:
   - not_sure
   - bloquer
   - interne
+  - help
 
 actions:
   - action_check_existence
@@ -34,7 +34,8 @@ actions:
   - utter_happy
   - utter_goodbye
   - utter_welcome
-  - utter_iamabot
+  - utter_help
+  - utter_sorryCanthelp
 
 entities:
   - classification
@@ -45,17 +46,17 @@ entities:
 
 responses:
   utter_greet:
-  - text: "Hé ! Comment allez-vous ?"
+  - text: "Bonjour !"
 
   utter_default:
   - text: "Désolé, je n'ai pas bien compris, pouvez-vous reformuler ?"
 
   utter_define:
-  - text: "je suis Wafaa, Je suis là pour vous aider à déterminer le niveau de classification de vos documents."
+  - text: "je suis Wafaa, chargée de vous aider à classifier vos documents."
 
   utter_choosetypeclassification:
    -
-      text: "vous voulez classer votre dossier en fonction de :"
+      text: "je suis Wafaa, chargée de vous aider à classifier vos documents. vous voulez classer votre document en fonction de :"
       buttons:
       - 
         title: "Contenu"
@@ -126,22 +127,42 @@ responses:
   - text: "Bye"
   
   utter_confid:
-  - text: "ce document est confidentiel"
+  - text: "Votre document doit être classifié confidentiel"
 
   utter_inter:
-  - text: "ce document est internes"
+  - text: "Votre document doit être classifié interne"
 
   utter_sensib:
-  - text: "ce document est sensibles"
+  - text: "Votre document doit être classifié sensible"
 
   utter_diffus:
-  - text: "ce document est diffusable"
+  - text: "Votre document doit être classifié diffusable"
 
   utter_welcome:
   - text: "avec plaisir!"
 
-  utter_iamabot:
-  - text: "je suis Wafaa, Je suis là pour vous aider à déterminer le niveau de classification de vos documents."
+  utter_sorryCanthelp:
+  - text: "Je ne peux malheureusement pas vous aider. Merci de vous référer au groupe Teams de classification de la donnée <link_here> \ \n
+  \ \n OU "
+
+  utter_help:
+    -
+      text: "Le niveau de classification d'un document dépend de son contenu (informations clients, procédure d'organisation, communiqués de presse), de la population destination [LAIUS] et de l'impact en cas de perte [LAIUS]. \ \n
+      \ \n Que contient votre document ? \ \n
+      \ \n Peut-il être partagé à l'extérieur de la banque sans problème, ou est-il à destination de l'ensemble de la banque en interne, ou est-il destiné uniquement à une entité précise ou est-il à destination d'un public restreint et bien défini dans une entité ? \ \n
+      \ \n Quel est l'impact sur la banque si le document venait à être diffusé ? \ \n
+      \ \n vous voulez classer votre document en fonction de :"
+      buttons:
+      - 
+        title: "Contenu"
+        payload: '/based_content'
+      - 
+        title: "La cible"
+        payload: '/based_cible'
+      - 
+        title: "Impact"
+        payload: '/based_impact'
+
 
 session_config:
   session_expiration_time: 60

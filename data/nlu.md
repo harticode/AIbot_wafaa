@@ -112,14 +112,17 @@
 ## intent:based_content
 - a base de contenu
 - base de contenu
+- En fonction du contenu
 
 ## intent:based_cible
 - a base de la cible
 - la cible du document
+- En fonction du cible
 
 ## intent:based_impact
 - a base de Impact de ce document sur entreprise
 - a base l'impact
+- En fonction d'impact
 
 ## intent:confidentiel
 - ce fichier est adressé à un groupe restreint de personnes bien identifier seulement
@@ -149,16 +152,23 @@
 - j'ai un probleme
 - Je suis bloqué
 
+## intent:help
+- help
+- aide-moi
+- SOS
+- détails
+- details
+
 ## intent:contient
-- Mon document contient [Dossiers des employés](classification), [Communications avec les clients](classification)
-- il contient [Communications avocat-client](classification)
-- contient [Données protégées par l'HIPAA](classification)
+- Mon document contient [politique de sécurité](classification), [numéros de comptes](classification)
+- il contient [processus](classification)
+- contient [réclamations de clients VIP](classification)
 - Mon document est constitué de [Communiqués de presse](classification)
-- est constitué de [Communications avocat-client](classification)
-- il y a dedans [Communiqués de presse](classification)
-- c'est un document de [Données protégées par l'HIPAA](classification)
-- c'est un fichier de [Communications avocat-client](classification)
-- [Communiqués de presse](classification)
+- est constitué [données VIP](classification)
+- il y a dedans [communication institutionnelle](classification)
+- c'est un document de [nomination](classification)
+- c'est un fichier [primes](classification)
+- [offres d'emploi](classification)
 
 
 ## lookup:classification

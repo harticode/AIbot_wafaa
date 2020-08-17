@@ -14,7 +14,8 @@ class action_check_existence(Action):
     sensibledoc = open("sensible.txt").read()
     internedoc = open("interne.txt").read()
     diffusabledoc = open("diffusable.txt").read()
-    
+    CasSpecial = ["procédure d'organisation","procédure","procedure"]
+    buttons = [{'title': 'Contenu', 'payload': '/based_content'}, {'title': 'La cible', 'payload': '/based_cible'}, {'title': 'Impact', 'payload': '/based_impact'}]
 
     def name(self) -> Text:
         return "action_check_existence"
@@ -26,37 +27,16 @@ class action_check_existence(Action):
             print(tracker.latest_message)
             if blob['entity'] == 'classification':
                 name = blob['value']
-                if name in self.confidentieldoc:
-                    dispatcher.utter_message(name)
+                if name in self.CasSpecial:
+                    dispatcher.utter_message(text="Ce sont des documents qui peuvent être internes ou sensibles. Pouvez-vous donner plus de détails sur votre document")
+                elif name in self.confidentieldoc:
+                    dispatcher.utter_message(text="Votre document doit être classifié confidentiel")
                 elif name in self.sensibledoc:
-                    dispatcher.utter_message(name)
+                    dispatcher.utter_message(text="Votre document doit être classifié sensible")
                 elif name in self.internedoc:
-                    dispatcher.utter_message(name)
+                    dispatcher.utter_message(text="Votre document doit être classifié interne")
                 elif name in self.diffusabledoc:
-                    dispatcher.utter_message(name)
+                    dispatcher.utter_message(text="Votre document doit être classifié diffusable")
                 else:
-                    gt = {"buttons": [
-                                        {
-                                            "type": "postback",
-                                            "payload": "/diffusable",
-                                            "title": "ces informations peuvent être publiées en ligne sans risque pour l'entreprise"
-                                        },
-                                        {
-                                            "type": "postback",
-                                            "payload": "/interne",
-                                            "title": "ce fichier peut etre partagees a l'interne de l'entreprise sans risque"
-                                        },
-                                        {
-                                            "type": "postback",
-                                            "payload": "/sensible",
-                                            "title": "ce fichier est adressé a un departement ou un groupe restreint de personnes bien identifier"
-                                        },
-                                        {
-                                            "type": "postback",
-                                            "payload": "/confidentiel",
-                                            "title": "ce fichier est adressé à un groupe restreint de personnes bien identifier seulement"
-                                        },
-                                    ]
-                        }
-                    dispatcher.utter_custom_json(gt)
+                    dispatcher.utter_button_message("Je ne peux malheureusement pas vous aider. Merci de vous référer au groupe Teams de classification de la donnée <link_here>\n OU \n vous voulez classer votre document en fonction de :", self.buttons)
         return []

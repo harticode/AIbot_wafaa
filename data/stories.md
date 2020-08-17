@@ -1,7 +1,6 @@
 ## happy path
 * greet
   - utter_greet
-  - utter_define
   - utter_choosetypeclassification
 * mood_great
   - utter_happy
@@ -18,6 +17,7 @@
 * based_cible
   - utter_cible
 * not_sure
+  - utter_sorryCanthelp
   - utter_choosetypeclassification
 
 ## classification path content 1
@@ -40,8 +40,12 @@
 * based_impact
   - utter_impact
 * not_sure
+  - utter_sorryCanthelp
   - utter_choosetypeclassification
 
+## path help
+* help
+  - utter_help
 
 ## confid
 * confidentiel
@@ -98,4 +102,4 @@
 
 ## bot challenge
 * bot_challenge
-  - utter_iamabot
+  - utter_define
